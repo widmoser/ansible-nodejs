@@ -1,0 +1,10 @@
+---
+# tasks file for ansible-nodejs
+- name: Install pm2 startup script
+  shell: export PM2_HOME=/home/{{node_user}}/.pm2 && env PATH=$PATH:/usr/bin pm2 startup -u {{node_user}} --hp /home/{{node_user}}
+- name: Give {{node_user}} ownership of his own home folder
+  file: 
+    path: /home/{{node_user}}
+    owner: "{{node_user}}"
+    group: "{{node_user}}"
+    recurse: yes
