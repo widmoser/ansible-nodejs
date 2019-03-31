@@ -8,3 +8,7 @@
     owner: "{{node_user}}"
     group: "{{node_user}}"
     recurse: yes
+- name: Install build tools
+  apt:
+    name: build-essential
+    state: present
